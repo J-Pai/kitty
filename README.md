@@ -17,7 +17,7 @@ cd ~/.config/fontconfig && vim fonts.conf
 <!-- Override monospace detection for custom fonts -->
 <match target="scan">
     <test name="family">
-        <string>JetBrainsMono NF</string>
+        <string>JetBrainsMono NFM</string>
     </test>
     <edit name="spacing">
         <int>100</int>
