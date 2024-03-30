@@ -5,28 +5,12 @@ Goes into ~/.config
 
 ```
 mkdir -p ~/.local/share/fonts
-cd ~/.local/share/fonts && curl -fLo "JetBrains Mono Regular Nerd Font Complete Mono Windows Compatible.ttf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/JetBrainsMonoNerdFontMono-Regular.ttf
-cd ~/.local/share/fonts && curl -fLo "JetBrains Mono Bold Nerd Font Complete Mono Windows Compatible.ttf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Bold/JetBrainsMonoNerdFontMono-Bold.ttf
-cd ~/.local/share/fonts && curl -fLo "JetBrains Mono Italic Nerd Font Complete Mono Windows Compatible.ttf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Italic/JetBrainsMonoNerdFontMono-Italic.ttf
-cd ~/.local/share/fonts && curl -fLo "JetBrains Mono Bold Italic Nerd Font Complete Mono Windows Compatible.ttf" \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/BoldItalic/JetBrainsMonoNerdFontMono-BoldItalic.ttf
-
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Noto.zip
+unzip Noto.zip
 mkdir -p ~/.config/fontconfig
 cd ~/.config/fontconfig && vim fonts.conf
-
-# Copy the text below
-<!-- Override monospace detection for custom fonts -->
-<match target="scan">
-    <test name="family">
-        <string>JetBrainsMono NFM</string>
-    </test>
-    <edit name="spacing">
-        <int>100</int>
-    </edit>
-</match>
 
 # Then run fc-cache to update the font cache
 fc-cache -f -v
